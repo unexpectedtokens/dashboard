@@ -1,0 +1,19 @@
+const Mongoose = require("mongoose");
+
+const ArticleSchema = new Mongoose.Schema({
+  code: {
+    type: Number,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  supply: {
+    type: Number,
+    default: 0
+  }
+});
+
+const Article = Mongoose.model("article", ArticleSchema);
+module.exports = Article;
