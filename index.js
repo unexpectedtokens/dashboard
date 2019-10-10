@@ -51,7 +51,7 @@ app.get("/articles", async (req, res) => {
   }
 });
 app.get("/app", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "/client/build/index.html"));
+  res.sendFile("/index.html");
 });
 
 app.listen(port, () => console.log("Listening on http://localhost:" + port));
