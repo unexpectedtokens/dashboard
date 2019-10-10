@@ -53,7 +53,7 @@ app.get("/articles", async (req, res) => {
 });
 app.get("/app", (req, res) => {
   res.sendFile(path.join(publicPath, "/index.html"));
-  console.log(path.join(path.join(publicPath, "/index.html")));
+  console.log(path.join(publicPath, "/index.html"));
 });
 
 app.get("/*", (req, res) => res.sendFile(path.join(publicPath, "/index.html")));
