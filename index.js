@@ -50,7 +50,7 @@ app.get("/articles", async (req, res) => {
     res.status(404).json({ error });
   }
 });
-app.get("/app", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(__dirname + "/client/build/index.html");
   console.log();
 });
