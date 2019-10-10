@@ -7,7 +7,7 @@ require("./db/mongoose");
 const Article = require("./db/models/article");
 const port = process.env.PORT || 5000;
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "/build")));
 // app.use((req, res, next) => {
 // ;
 //   next();
