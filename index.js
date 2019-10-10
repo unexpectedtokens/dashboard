@@ -6,7 +6,7 @@ require("./db/mongoose");
 const Article = require("./db/models/article");
 const port = process.env.PORT || 5000;
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, "/client/build")));
+app.use(express.static(__dirname + "/client/build"));
 
 // app.use((req, res, next) => {
 // ;
@@ -51,7 +51,8 @@ app.get("/articles", async (req, res) => {
   }
 });
 app.get("/app", (req, res) => {
-  res.sendFile("/index.html");
+  res.sendFile(__dirname + "/client/build/index.html");
+  console.log();
 });
 
 app.listen(port, () => console.log("Listening on http://localhost:" + port));
