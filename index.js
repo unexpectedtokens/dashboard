@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -55,4 +56,4 @@ app.get("/app", (req, res) => {
 });
 
 app.get("/*", (req, res) => res.redirect("/app"));
-app.listen(5000, () => console.log("Listening on http://localhost:5000"));
+app.listen(port, () => console.log("Listening on http://localhost:5000"));
