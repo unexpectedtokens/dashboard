@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
-const publicPath = path.join(__dirname, "/client/build");
+const publicPath = path.join(__dirname, "/client/build/");
 require("./db/mongoose");
 const Article = require("./db/models/article");
 const port = process.env.PORT || 5000;
@@ -56,4 +56,4 @@ app.get("/app", (req, res) => {
 });
 
 app.get("/*", (req, res) => res.redirect("/app"));
-app.listen(port, () => console.log("Listening on http://localhost:5000"));
+app.listen(port, () => console.log("Listening on http://localhost:" + port));
