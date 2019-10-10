@@ -2,11 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
+const publicPath = path.resolve(__dirname, "/client/build/");
 require("./db/mongoose");
 const Article = require("./db/models/article");
 const port = process.env.PORT || 5000;
 app.use(express.json());
-app.use(express.static(__dirname + "/client/build"));
+app.use(express.static(publicPath));
 
 // app.use((req, res, next) => {
 // ;
@@ -51,7 +52,7 @@ app.get("/articles", async (req, res) => {
   }
 });
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/client/build/index.html");
+  res.sendFile(publicPath + "/index.html");
   console.log();
 });
 
