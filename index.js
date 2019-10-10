@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
-const publicPath = path.resolve(__dirname, "/client/build/");
+const publicPath = path.resolve(__dirname, "/build/");
 require("./db/mongoose");
 const Article = require("./db/models/article");
 const port = process.env.PORT || 5000;
@@ -51,7 +51,7 @@ app.get("/articles", async (req, res) => {
   }
 });
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/public/index.html"));
+  res.sendFile(path.join(__dirname + "build/index.html"));
 });
 
 app.listen(port, () => console.log("Listening on http://localhost:" + port));
