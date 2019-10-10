@@ -23,6 +23,7 @@ app.get("/article/:code", async (req, res) => {
 });
 
 app.post("/article", async (req, res) => {
+  console.log(req.body);
   try {
     const article = await Article.findOne({ code: req.body.code });
     if (!article) {
@@ -35,6 +36,8 @@ app.post("/article", async (req, res) => {
       return res.json({ message: "Successfully updated product" });
     }
   } catch (error) {
+    console.log(error);
+
     res.status(400).json({ error });
   }
 });

@@ -13,6 +13,7 @@ const ArticleSchema = new Mongoose.Schema({
     type: Number,
     default: 0
   }
+  // prodNumber: { type: Number, required: true }
 });
 
 const Article = Mongoose.model("article", ArticleSchema);
