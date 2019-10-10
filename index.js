@@ -4,6 +4,7 @@ const path = require("path");
 const publicPath = path.join(__dirname, "/client/build");
 require("./db/mongoose");
 const Article = require("./db/models/article");
+const port = process.env.PORT || 5000;
 app.use(express.static(publicPath));
 app.use(express.json());
 
