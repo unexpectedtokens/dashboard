@@ -52,7 +52,7 @@ app.get("/articles", async (req, res) => {
   }
 });
 app.get("/", (req, res) => {
-  res.sendFile(publicPath + "/index.html");
+  res.sendFile(path.resolve(__dirname, "/index.html"));
   console.log();
 });
 
