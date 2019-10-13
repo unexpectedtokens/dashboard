@@ -24,11 +24,14 @@ app.get("/article/:code", async (req, res) => {
 });
 
 app.post("/article", async (req, res) => {
-  console.log(req.body);
   try {
     const article = await Article.findOne({ code: req.body.code });
+    if (!article && !req.body.name) {
+      return res.status(400);
+    }
     if (!article) {
-      const newArticle = new Article({ ...req.body });
+      const newArticle = new Article({ ...req.body, supply: 1 });
+      console.log(newArticle);
       await newArticle.save();
       return res.json({ message: "Successfully added new product" });
     } else {
@@ -39,7 +42,7 @@ app.post("/article", async (req, res) => {
   } catch (error) {
     console.log(error);
 
-    res.status(400).json({ error });
+    res.status(400);
   }
 });
 app.get("/articles", async (req, res) => {

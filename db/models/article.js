@@ -11,7 +11,7 @@ const ArticleSchema = new Mongoose.Schema({
   },
   supply: {
     type: Number,
-    default: 0
+    default: 1
   }
   // prodNumber: { type: Number, required: true }
 });
