@@ -12,7 +12,20 @@ app.use(express.static(path.join(__dirname, "/build")));
 // ;
 //   next();
 // });
-
+app.patch("/article/:id", async (req, res) => {
+  const article = await Article.findById(req.params.id);
+  let { name, code, supply } = req.body;
+  if (supply < 0) supply = 0;
+  const updates = {
+    name,
+    code,
+    supply
+  };
+  Object.keys(updates).forEach(a => (article[a] = updates[a]));
+  console.log("article:", article);
+  await article.save();
+  res.status(200).send();
+});
 app.get("/article/:code", async (req, res) => {
   try {
     const article = await Article.findOne({ code: req.params.code });
