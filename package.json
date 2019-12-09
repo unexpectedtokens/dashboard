@@ -9,6 +9,7 @@
   "author": "Daniel de Jong",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "excel": "^1.0.1",
     "express": "^4.17.1",
